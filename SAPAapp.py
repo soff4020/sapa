@@ -3,7 +3,7 @@ import streamlit as st
 # 1. 페이지 설정 및 디자인
 st.set_page_config(page_title="제조업 중처법 리스크 진단", layout="centered")
 
-st.title("🏭 제조업 중대재해처벌법 통합 리스크 시뮬레이터")
+st.title("🏭 중대재해처벌법 통합 리스크 시뮬레이터")
 st.markdown("---")
 st.subheader("CEO를 위한 전략적 리스크 분석")
 st.write("기업 정보를 입력하시면 사고 발생 시 예상되는 **형량**과 **경제적 손실**을 즉시 산출합니다.")
@@ -69,3 +69,40 @@ if submitted:
     
     if st.button("대장에게 비밀 컨설팅 요청하기 (카카오톡)"):
         st.write("상담 신청이 완료되었습니다. 대장이 곧 연락드립니다.")
+
+st.markdown("---")
+st.subheader("📩 CEO 전용 정밀 대응 리포트 신청")
+st.write("분석 결과와 **'2026 제조업 안전 점검 가이드라인'**을 송부해 드립니다.")
+
+# 1. 정보 수집 폼
+with st.form("contact_form"):
+    u_name = st.text_input("성함 / 직함", placeholder="예: 홍길동 대표이사")
+    u_phone = st.text_input("연락처", placeholder="예: 010-1234-5678")
+    u_email = st.text_input("수신 이메일", placeholder="ceo@company.com")
+    
+    submit_contact = st.form_submit_button("📊 맞춤형 리포트 및 무료 상담 신청")
+
+    if submit_contact:
+        if u_name and u_phone and "@" in u_email:
+            st.success(f"신청 완료! {u_name}님, 잠시만 기다려 주십시오.")
+            st.info(f"📍 전문 리포트는 **{u_email}**로 발송되며,\n\n전문가(대장)가 직접 **{u_phone}**으로 연락드려 전략을 제안해 드립니다.")
+        else:
+            st.warning("정보를 정확히 입력해 주셔야 리포트 발송이 가능합니다.")
+
+# 2. 대장님의 공식 프로필 및 연락처 (하단 고정)
+st.markdown("---")
+col_profile, col_contact = st.columns([1, 2])
+
+with col_profile:
+    # 대장의 위엄을 상징하는 문구
+    st.markdown("### **CONTACT**")
+
+with col_contact:
+    st.markdown(f"""
+    **중대재해처벌법 대응 전략 전문가: 대장** 📧 **이메일:** soff23@gmail.com  
+    📞 **직통번호:** 010-6214-4020  
+    
+    *실시간 상담이 필요하신 경우 위 번호로 직접 연락 주십시오.*
+    """)
+
+st.caption("© 2026 중대재해 리스크 컨설팅 그룹. All rights reserved.")
