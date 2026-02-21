@@ -67,7 +67,7 @@ if submitted:
     > 기업의 생존을 위해 지금 즉시 방어막(보험 및 안전 진단)을 구축하십시오."
     """)
     
-    if st.button("대장에게 비밀 컨설팅 요청하기 (카카오톡)"):
+    if st.button("대장에게 비밀 컨설팅 요청하기 (https://open.kakao.com/o/s73BLxhi)"):
         st.write("상담 신청이 완료되었습니다. 대장이 곧 연락드립니다.")
 
 st.markdown("---")
@@ -91,17 +91,16 @@ with st.form("contact_form"):
 
 # 2. 대장님의 공식 프로필 및 연락처 (하단 고정)
 st.markdown("---")
-col_profile, col_contact = st.columns([1, 2])
+st.subheader("📲 즉시 상담이 필요하십니까?")
 
-with col_profile:
-    # 대장의 위엄을 상징하는 문구
-    st.markdown("### **CONTACT**")
+# 카카오톡 버튼 (가장 크게)
+st.link_button("💬 대장과 실시간 1:1 카톡 상담하기", "https://open.kakao.com/o/s73BLxhi", use_container_width=True)
 
-with col_contact:
-    st.markdown(f"""
-    **중대재해처벌법 대응 전략 전문가: 대장** 📧 **이메일:** soff23@gmail.com  
+# 메일 및 전화번호 안내
+st.markdown(f"""
+    📧 **이메일:** soff23@gmail.com  
     📞 **직통번호:** 010-6214-4020  
-    
+   
     *실시간 상담이 필요하신 경우 위 번호로 직접 연락 주십시오.*
     """)
 
